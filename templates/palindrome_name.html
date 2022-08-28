@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrome</title>
+</head>
+<body>
+  <h2>Person: {{person.first_name}} {{person.last_name}} ID: {{person.person_id}}</h2>
+    {% if palin_first %}
+        <p>{{person.first_name}} is a palindrome</p>
+    {% else %}
+        <p>{{person.first_name}} is not a palindrome</p>
+    {% endif %}
+    {% if palin_last %}
+        <p>{{person.last_name}} is a palindrome</p>
+    {% else %}
+        <p>{{person.last_name}} is not a palindrome</p>
+    {% endif %}
+</body>
+</html>

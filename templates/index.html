@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Person CRUD</title>
+    </head>
+    <body>
+        <h2>Add a person</h2>
+            <form method="POST" action="/">
+                <input type="text" name="first_name" placeholder="First name">
+                <input type="text" name="last_name" placeholder="Last name">
+                <input type="submit" value="Add">
+            </form>
+        <h2>People</h2>
+        <table>
+            {% for person in people %}
+                <tr>
+                    <td>
+                        <p>{{person.first_name}} {{person.last_name}} ID: {{person.person_id}}</p>
+                    </td>
+                    <td>
+                        <form method="POST" action="./update">
+                            <input type="hidden" value="{{person.person_id}}" name="person_id">
+                            <input type="text" value="{{person.first_name}}" name="new_first_name">
+                            <input type="text" value="{{person.last_name}}" name="new_last_name">
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="POST" action="./delete">
+                            <input type="hidden" value="{{person.person_id}}" name="person_id">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="GET" action="./palindrome/{{ person.person_id }}">
+                            <a href="/palindrome/{{ person.person_id }}"><button>Palindrome</button></a>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
