@@ -1,5 +1,5 @@
 pipeline{
-   agent any{
+   agent any 
    stages{
       stage("Building Images"){
         steps{
@@ -38,5 +38,5 @@ post{
 
 }
 
- }
+ 
 }
