@@ -1,16 +1,7 @@
-FROM python:3.8-alpine
-
-COPY ./requirements.txt /app/requirements.txt
-
+FROM python:3.11-slim
 WORKDIR /app
-
-RUN apk add build-base \
-    && pip install -r requirements.txt
-
-ADD main.py /
-
-COPY . /app
-
-EXPOSE 5000
-
-CMD ["python", "main.py", "--host=0.0.0.0"]
+COPY requirements.txt .
+RUN pip isntall --no-cache-dir requirements.txt
+COPY . .
+EXPOSE 8082
+CMD [ "python","main.py" ]
